@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package ecom.product_catalog.product;
+
+import "base.proto";
+
+service ProductService {
+  rpc ListProducts(ListProductsRequest) returns (ListProductsResponse) {};
+  rpc Test(Empty) returns (TestResponse) {};
+}
+
+message Empty {}
+
+message ListProductsRequest {
+  optional ecom.product_catalog.base.PaginationRequest pagination = 1;
+}
+
+message ListProductsResponse {
+  repeated Product products = 1;
+  ecom.product_catalog.base.PaginationResponse pagination = 2;
+}
+
+message Product {
+  string product_id = 1;
+  string product_sku = 2;
+  string product_description = 3;
+  double product_price = 4;
+  int32 product_stock = 5;
+}
+
+message TestResponse {
+  string test = 1;
+}

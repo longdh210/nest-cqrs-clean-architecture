@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package ecom.product_catalog.base;
+
+message PaginationRequest {
+  int32 current_page = 1;
+  int32 page_size = 2;
+}
+
+message PaginationResponse {
+  int32 current_page = 1;
+  int32 page_size = 2;
+  int32 total_records = 3;
+  int32 total_pages = 4;
+}
